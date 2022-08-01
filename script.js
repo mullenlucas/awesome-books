@@ -16,7 +16,7 @@ books.forEach((el, index) => {
     <div class="oneBook" id="book${index}">
     <h4> ${el.titulo} </h4>
     <h4> ${el.author} </h4> 
-    <button class="btn-display" id="remove-id${index}">remove</button> 
+    <button class="btn-display" id="${index}">remove</button> 
     </div>
     ` 
 
@@ -45,7 +45,7 @@ newB.addEventListener('submit', function(event){
     <div class="oneBook" id="book${index}">
     <h4> ${el.titulo} </h4>
     <h4> ${el.author} </h4> 
-    <button class="btn-display" id="remove-id${index}">remove</button> 
+    <button class="btn-display" id="${index}">remove</button> 
     </div>
     `
 
@@ -53,15 +53,34 @@ newB.addEventListener('submit', function(event){
     bookList.innerHTML = displ
 
     console.log(books)
-    let removIds = [...document.querySelectorAll('.btn-display')].map(item => item.id)
-    }
+}
 })
 
-document.querySelectorAll('.btn-display').forEach( (rem) => {
+/* document.querySelectorAll('.btn-display').forEach( (rem) => {
     rem.addEventListener('click', (event) => {
         console.log(rem)
     })
 
+}) */
+
+function selectBook(e){
+    
+}
+
+document.addEventListener('click', e=>{
+    //let btnDelete = document.querySelector('.btn-display')
+    let removIds = [...document.querySelectorAll('.btn-display')].map(item => item.id)
+    //let numero = parseint(id, 10)
+    if(e.target.matches('.btn-display') ){
+        console.log('Hola');
+        //console.log(e.target.id);
+        removIds.filter((el, index) =>{
+            //console.log(index.toString(), 'a string')
+              e.target.id !== index.toString() })
+   ;
+    }
+
+    console.log(removIds);
 })
 
 
