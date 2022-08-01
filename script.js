@@ -1,11 +1,11 @@
 let books = [
     {
-   titulo: '100 años de soledad',
-   author: 'Gabriel Garcia Marquez'
+    titulo: '100 años de soledad',
+    author: 'Gabriel Garcia Marquez'
     },
     {
-   titulo: 'El tirano',
-   author: 'Massimo Manfredy'
+    titulo: 'El tirano',
+    author: 'Massimo Manfredi'
     }
 ]
 
@@ -22,7 +22,6 @@ books.forEach((el, index) => {
 
 });
 bookList.innerHTML = displ
-let removIds = [...document.querySelectorAll('.btn-display')].map(item => item.id)
 
 const newB = document.getElementById('bk')
 
@@ -51,38 +50,32 @@ newB.addEventListener('submit', function(event){
 
     });
     bookList.innerHTML = displ
-
-    console.log(books)
-}
-})
-
-/* document.querySelectorAll('.btn-display').forEach( (rem) => {
-    rem.addEventListener('click', (event) => {
-        console.log(rem)
-    })
-
-}) */
-
-function selectBook(e){
-    
-}
-
-document.addEventListener('click', e=>{
-    //let btnDelete = document.querySelector('.btn-display')
-    let removIds = [...document.querySelectorAll('.btn-display')].map(item => item.id)
-    //let numero = parseint(id, 10)
-    if(e.target.matches('.btn-display') ){
-        console.log('Hola');
-        //console.log(e.target.id);
-        removIds.filter((el, index) =>{
-            //console.log(index.toString(), 'a string')
-              e.target.id !== index.toString() })
-   ;
     }
-
-    console.log(removIds);
 })
 
+document.addEventListener('click', e => {
 
+    if(e.target.matches('.btn-display') ){
 
-console.log(books);
+        books = books.filter((el, index) =>
+            e.target.id !== index.toString()
+            )
+    
+            let displ = ''
+            books.forEach((el, index) => {    
+            displ += `
+            <div class="oneBook" id="book${index}">
+            <h4> ${el.titulo} </h4>
+            <h4> ${el.author} </h4> 
+            <button class="btn-display" id="${index}">remove</button> 
+            </div>
+            `
+        
+            });
+            bookList.innerHTML = displ
+    }
+})
+
+window.localStorage.setItem('localBooks', JSON.stringify(books))
+
+console.log(JSON.parse(window.localStorage.getItem('localBooks')))
