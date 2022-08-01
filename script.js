@@ -19,10 +19,26 @@ books.forEach((el, index) => {
 bookList.innerHTML = displ
 
 
-const add = function (){    
+
+/* const add = function (){    
     const reciTi = document.getElementById("recibe-ti").value
     const reciAu = document.getElementById("recibe-au").value
-    //console.log(reciAu);
+   // console.log(reciAu);
+let newBook = {
+    titulo: reciTi,
+    author: reciAu
+}
+    books.push(newBook)
+} */
+
+const newB = document.getElementById('bk')
+
+newB.addEventListener('click', function(event){
+    event.preventDefault();
+    const reciTi = document.getElementById("recibe-ti").value
+    const reciAu = document.getElementById("recibe-au").value
+   // console.log(reciAu);
+   if(reciTi !== ''&& reciAu !== '' ){
 let newBook = {
     titulo: reciTi,
     author: reciAu
@@ -30,9 +46,9 @@ let newBook = {
     books.push(newBook)
 }
 
-const newB = document.getElementById('bk')
 
-newB.addEventListener('click', function(){add()})
+
+   })
 
 
 console.log(books);
