@@ -1,4 +1,5 @@
-let books = []
+let books = [];
+
 if (books === []){
   books = [
     {
@@ -20,7 +21,7 @@ function getBooks() {
   books = JSON.parse(window.localStorage.getItem('localBooks'));
 }
 
-getBooks()
+getBooks();
 
 function display() {
   const bookList = document.querySelector('.books-display');
