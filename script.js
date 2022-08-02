@@ -1,6 +1,6 @@
 let books = [];
 
-if (books === []){
+if (books === []) {
   books = [
     {
       titulo: '100 años de soledad',
