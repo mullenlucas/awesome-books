@@ -34,9 +34,12 @@ class StorageB {
     this.getBooks().forEach((el, index) => {
       displ += `
       <div class="oneBook" id="book${index}">
-      <h4> ${el.titulo} </h4>
-      <h4> ${el.author} </h4> 
-      <button class="btn-display" id="${index}">remove</button> 
+      <div class='infobook'>
+      <h4> '${el.titulo}' by ${el.author} </h4> 
+      </div>
+      <div class='btn-delete'>
+      <button class="btn-display" id="${index}">remove</button>
+      </div> 
       </div>
       `;
     });
