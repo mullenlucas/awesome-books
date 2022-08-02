@@ -9,6 +9,18 @@ let books = [
     }
 ]
 
+function storage(ok){
+window.localStorage.setItem('localBooks', JSON.stringify(ok))
+
+}
+
+function getBooks(){
+    books = JSON.parse(window.localStorage.getItem('localBooks'))
+}
+
+getBooks()
+
+function display(){
 const bookList = document.querySelector('.books-display');
 let displ = ''
 books.forEach((el, index) => {    
@@ -22,9 +34,11 @@ books.forEach((el, index) => {
 
 });
 bookList.innerHTML = displ
+}
+
+// ---------ADD------------- 
 
 const newB = document.getElementById('bk')
-
 newB.addEventListener('submit', function(event){
 
     event.preventDefault();
@@ -36,46 +50,32 @@ newB.addEventListener('submit', function(event){
         titulo: reciTi,
         author: reciAu
     }
-    books.unshift(newBook)
-
-    let displ = ''
-    books.forEach((el, index) => {    
-    displ += `
-    <div class="oneBook" id="book${index}">
-    <h4> ${el.titulo} </h4>
-    <h4> ${el.author} </h4> 
-    <button class="btn-display" id="${index}">remove</button> 
-    </div>
-    `
-
-    });
-    bookList.innerHTML = displ
+   books.unshift(newBook)
+  storage(books)
+  display()
+  
     }
 })
+
+// -------DELETE----------
+function deleteBook(evento){
+    books = books.filter((el, index) =>
+    evento.target.id !== index.toString()
+    )
+   storage(books)
+   display()
+}
 
 document.addEventListener('click', e => {
-
     if(e.target.matches('.btn-display') ){
-
-        books = books.filter((el, index) =>
-            e.target.id !== index.toString()
-            )
-    
-            let displ = ''
-            books.forEach((el, index) => {    
-            displ += `
-            <div class="oneBook" id="book${index}">
-            <h4> ${el.titulo} </h4>
-            <h4> ${el.author} </h4> 
-            <button class="btn-display" id="${index}">remove</button> 
-            </div>
-            `
-        
-            });
-            bookList.innerHTML = displ
-    }
+       deleteBook(e)
+}
 })
 
-window.localStorage.setItem('localBooks', JSON.stringify(books))
+display()
 
-console.log(JSON.parse(window.localStorage.getItem('localBooks')))
+
+
+
+
+
