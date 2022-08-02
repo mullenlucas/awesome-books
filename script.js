@@ -1,10 +1,3 @@
-class Books {
-  constructor(title, author) {
-    this.title = title,
-    this.author = author
-  }
-}
-
 class StorageB {
   static storage(ok) {
     window.localStorage.setItem('localBooks', JSON.stringify(ok));
@@ -25,7 +18,7 @@ class StorageB {
       this.storage(books);
     }
     books = JSON.parse(window.localStorage.getItem('localBooks'));
-    return books
+    return books;
   }
 
   static display() {
@@ -47,10 +40,10 @@ class StorageB {
   }
 
   static addBook() {
-    const books = this.getBooks()
+    const books = this.getBooks();
     const reciTi = document.getElementById('recibe-ti').value;
     const reciAu = document.getElementById('recibe-au').value;
-  
+
     if (reciTi !== '' && reciAu !== '') {
       const newBook = {
         titulo: reciTi,
@@ -63,12 +56,11 @@ class StorageB {
   }
 
   static deleteBook(evento) {
-    let books = this.getBooks()
+    let books = this.getBooks();
     books = books.filter((el, index) => evento.target.id !== index.toString());
     this.storage(books);
     this.display();
   }
-
 }
 
 // ---------ADD-------------
@@ -76,7 +68,7 @@ class StorageB {
 const newB = document.getElementById('bk');
 newB.addEventListener('submit', (event) => {
   event.preventDefault();
-  StorageB.addBook()
+  StorageB.addBook();
 });
 
 // -------DELETE----------
