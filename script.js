@@ -1,20 +1,20 @@
-let books = [];
-
-if (books === []) {
-  books = [
-    {
-      titulo: '100 años de soledad',
-      author: 'Gabriel Garcia Marquez',
-    },
-    {
-      titulo: 'El tirano',
-      author: 'Massimo Manfredi',
-    },
-  ];
-}
+let books = [
+  {
+    titulo: '100 años de soledad',
+    author: 'Gabriel Garcia Marquez',
+  },
+  {
+    titulo: 'El tirano',
+    author: 'Massimo Manfredi',
+  },
+];
 
 function storage(ok) {
   window.localStorage.setItem('localBooks', JSON.stringify(ok));
+}
+
+if (window.localStorage.getItem('localBooks') === null) {
+  storage(books);
 }
 
 function getBooks() {
