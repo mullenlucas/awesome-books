@@ -88,3 +88,33 @@ document.addEventListener('click', (e) => {
 });
 
 StorageB.display();
+
+// -------NAV--------
+
+const listBtn = document.getElementById('list-link'),
+    addBtn = document.getElementById('add-link'),
+    contactBtn = document.getElementById('contact-link'),
+    listBox = document.querySelector('.list'),
+    addBox = document.querySelector('.add'),
+    contactBox = document.querySelector('.contact');
+
+listBtn.addEventListener('click',(e)=>{
+  listBox.style.display = 'flex';
+  addBox.style.display = 'none'; 
+  contactBox.style.display = 'none'
+} )
+
+
+addBtn.addEventListener('click',(e)=>{
+    listBox.style.display = 'none';
+    addBox.style.display = 'flex'; 
+    contactBox.style.display = 'none'
+} )
+
+contactBtn.addEventListener('click',(e)=>{
+  listBox.style.display = 'none';
+  addBox.style.display = 'none'; 
+  contactBox.style.display = 'flex'
+} )
+
+

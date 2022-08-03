@@ -75,8 +75,8 @@ hr{
 header{
   border-style: solid;
   margin: auto;
+  margin-top: 3%;
   width: 80%;
-  padding-top: 3%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -88,4 +88,29 @@ flex-direction: row;
 list-style-type: none;
 margin: 0;
 padding: 0;
+}
+section{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer{
+  border-style: solid;
+  margin: auto;
+  margin-top: 3%;
+  width: 80%;
+}
+
+.add{
+  display: none;
+}
+
+.contact{
+  display: none;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
 }
