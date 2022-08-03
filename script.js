@@ -1,41 +1,66 @@
-let books = [
-  {
-    titulo: '100 años de soledad',
-    author: 'Gabriel Garcia Marquez',
-  },
-  {
-    titulo: 'El tirano',
-    author: 'Massimo Manfredi',
-  },
-];
+class StorageB {
+  static storage(ok) {
+    window.localStorage.setItem('localBooks', JSON.stringify(ok));
+  }
 
-function storage(ok) {
-  window.localStorage.setItem('localBooks', JSON.stringify(ok));
-}
+  static getBooks = () => {
+    let books = [
+      {
+        titulo: '100 años de soledad',
+        author: 'Gabriel Garcia Marquez',
+      },
+      {
+        titulo: 'El tirano',
+        author: 'Massimo Manfredi',
+      },
+    ];
+    if (window.localStorage.getItem('localBooks') === null) {
+      this.storage(books);
+    }
+    books = JSON.parse(window.localStorage.getItem('localBooks'));
+    return books;
+  }
 
-if (window.localStorage.getItem('localBooks') === null) {
-  storage(books);
-}
+  static display() {
+    const bookList = document.querySelector('.books-display');
+    let displ = '';
+    this.getBooks().forEach((el, index) => {
+      displ += `
+      <div class="oneBook" id="book${index}">
+      <div class='infobook'>
+      <h4> '${el.titulo}' by ${el.author} </h4> 
+      </div>
+      <div class='btn-delete'>
+      <button class="btn-display" id="${index}">remove</button>
+      </div> 
+      </div>
+      `;
+    });
+    bookList.innerHTML = displ;
+  }
 
-function getBooks() {
-  books = JSON.parse(window.localStorage.getItem('localBooks'));
-}
+  static addBook() {
+    const books = this.getBooks();
+    const reciTi = document.getElementById('recibe-ti').value;
+    const reciAu = document.getElementById('recibe-au').value;
 
-getBooks();
+    if (reciTi !== '' && reciAu !== '') {
+      const newBook = {
+        titulo: reciTi,
+        author: reciAu,
+      };
+      books.unshift(newBook);
+      this.storage(books);
+      this.display();
+    }
+  }
 
-function display() {
-  const bookList = document.querySelector('.books-display');
-  let displ = '';
-  books.forEach((el, index) => {
-    displ += `
-    <div class="oneBook" id="book${index}">
-    <h4> ${el.titulo} </h4>
-    <h4> ${el.author} </h4> 
-    <button class="btn-display" id="${index}">remove</button> 
-    </div>
-    `;
-  });
-  bookList.innerHTML = displ;
+  static deleteBook(evento) {
+    let books = this.getBooks();
+    books = books.filter((el, index) => evento.target.id !== index.toString());
+    this.storage(books);
+    this.display();
+  }
 }
 
 // ---------ADD-------------
@@ -43,31 +68,15 @@ function display() {
 const newB = document.getElementById('bk');
 newB.addEventListener('submit', (event) => {
   event.preventDefault();
-  const reciTi = document.getElementById('recibe-ti').value;
-  const reciAu = document.getElementById('recibe-au').value;
-
-  if (reciTi !== '' && reciAu !== '') {
-    const newBook = {
-      titulo: reciTi,
-      author: reciAu,
-    };
-    books.unshift(newBook);
-    storage(books);
-    display();
-  }
+  StorageB.addBook();
 });
 
 // -------DELETE----------
-function deleteBook(evento) {
-  books = books.filter((el, index) => evento.target.id !== index.toString());
-  storage(books);
-  display();
-}
 
 document.addEventListener('click', (e) => {
   if (e.target.matches('.btn-display')) {
-    deleteBook(e);
+    StorageB.deleteBook(e);
   }
 });
 
-display();
+StorageB.display();
