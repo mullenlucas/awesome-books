@@ -11,6 +11,8 @@ html {
 
 body {
   background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -71,8 +73,9 @@ hr{
 
 .list{
   text-align: center;
+  display: flex;
 }
-header{
+nav{
   border-style: solid;
   margin: auto;
   margin-top: 3%;
@@ -88,6 +91,7 @@ flex-direction: row;
 list-style-type: none;
 margin: 0;
 padding: 0;
+
 }
 section{
   display:flex;
@@ -100,6 +104,7 @@ footer{
   margin: auto;
   margin-top: 3%;
   width: 80%;
+  text-align: center;
 }
 
 .add{
@@ -108,9 +113,15 @@ footer{
 
 .contact{
   display: none;
+
 }
 
 .list{
   display: flex;
   flex-direction: column;
+}
+
+.date-time {
+  float: right;
+  padding-right: 20%
 }
