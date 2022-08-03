@@ -68,3 +68,24 @@ hr{
   display: flex;
   justify-items: flex-end;
 }
+
+.list{
+  text-align: center;
+}
+header{
+  border-style: solid;
+  margin: auto;
+  width: 80%;
+  padding-top: 3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.nav{
+gap: 30px;
+display: flex;
+flex-direction: row;
+list-style-type: none;
+margin: 0;
+padding: 0;
+}

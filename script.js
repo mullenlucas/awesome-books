@@ -32,7 +32,7 @@ class StorageB {
     const bookList = document.querySelector('.books-display');
     let displ = '';
     this.getBooks().forEach((el, index) => {
-      displ += `
+      displ += `      
       <div class="oneBook" id="book${index}">
       <div class='infobook'>
       <h4> '${el.titulo}' by ${el.author} </h4> 
