@@ -1,10 +1,3 @@
-class Books {
-  constructor(title, author) {
-    this.title = title,
-    this.author = author
-  }
-}
-
 class StorageB {
   static storage(ok) {
     window.localStorage.setItem('localBooks', JSON.stringify(ok));
@@ -25,7 +18,7 @@ class StorageB {
       this.storage(books);
     }
     books = JSON.parse(window.localStorage.getItem('localBooks'));
-    return books
+    return books;
   }
 
   static display() {
@@ -47,10 +40,10 @@ class StorageB {
   }
 
   static addBook() {
-    const books = this.getBooks()
+    const books = this.getBooks();
     const reciTi = document.getElementById('recibe-ti').value;
     const reciAu = document.getElementById('recibe-au').value;
-  
+
     if (reciTi !== '' && reciAu !== '') {
       const newBook = {
         titulo: reciTi,
@@ -63,12 +56,11 @@ class StorageB {
   }
 
   static deleteBook(evento) {
-    let books = this.getBooks()
+    let books = this.getBooks();
     books = books.filter((el, index) => evento.target.id !== index.toString());
     this.storage(books);
     this.display();
   }
-
 }
 
 // ---------ADD-------------
@@ -76,7 +68,7 @@ class StorageB {
 const newB = document.getElementById('bk');
 newB.addEventListener('submit', (event) => {
   event.preventDefault();
-  StorageB.addBook()
+  StorageB.addBook();
 });
 
 // -------DELETE----------
@@ -91,39 +83,37 @@ StorageB.display();
 
 // -------NAV--------
 
-const listBtn = document.getElementById('list-link'),
-    addBtn = document.getElementById('add-link'),
-    contactBtn = document.getElementById('contact-link'),
-    listBox = document.querySelector('.list'),
-    addBox = document.querySelector('.add'),
-    contactBox = document.querySelector('.contact');
+const listBtn = document.getElementById('list-link');
+const addBtn = document.getElementById('add-link');
+const contactBtn = document.getElementById('contact-link');
+const listBox = document.querySelector('.list');
+const addBox = document.querySelector('.add');
+const contactBox = document.querySelector('.contact');
 
-listBtn.addEventListener('click',(e)=>{
+listBtn.addEventListener('click', () => {
   listBox.style.display = 'flex';
-  addBox.style.display = 'none'; 
-  contactBox.style.display = 'none'
-} )
+  addBox.style.display = 'none';
+  contactBox.style.display = 'none';
+});
 
-
-addBtn.addEventListener('click',(e)=>{
-    listBox.style.display = 'none';
-    addBox.style.display = 'flex'; 
-    contactBox.style.display = 'none'
-} )
-
-contactBtn.addEventListener('click',(e)=>{
+addBtn.addEventListener('click', () => {
   listBox.style.display = 'none';
-  addBox.style.display = 'none'; 
-  contactBox.style.display = 'flex'
-} )
+  addBox.style.display = 'flex';
+  contactBox.style.display = 'none';
+});
 
+contactBtn.addEventListener('click', () => {
+  listBox.style.display = 'none';
+  addBox.style.display = 'none';
+  contactBox.style.display = 'flex';
+});
 
-let today = new Date()
-let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+const today = new Date();
+const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
 
-let dateTime = date+' '+time;
+const dateTime = `${date} ${time}`;
 
-const dateId = document.getElementById('date-time-id')
+const dateId = document.getElementById('date-time-id');
 
-dateId.innerHTML = dateTime
+dateId.innerHTML = dateTime;

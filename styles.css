@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 html {
   color: #555;
   font-family: 'Lato', sans-serif;
@@ -21,61 +22,64 @@ body {
   flex-direction: column;
 } */
 
-h1{
+h1 {
   text-align: center;
   padding-bottom: 10%;
 }
 
-h2{
+h2 {
   padding-top: 5%;
   padding-bottom: 5%;
 }
 
-hr{
-  
+hr {
   align-items: center;
   margin: auto;
   width: 40%;
 }
 
-.add{
-  display: flex;
+.add {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  
+  display: none;
 }
 
-.books-display{
+.books-display {
   border-style: solid;
   border-width: 1px;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 80%;
   margin: auto;
 }
-.oneBook{
+
+.oneBook {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   width: 100%;
 }
-.infobook{
+
+.infobook {
   display: flex;
   justify-items: flex-start;
   float: left;
 }
-.btn-delete{
+
+.btn-delete {
   display: flex;
   justify-items: flex-end;
 }
 
-.list{
+.list {
   text-align: center;
   display: flex;
+  flex-direction: column;
 }
-nav{
+
+nav {
   border-style: solid;
   margin: auto;
   margin-top: 3%;
@@ -84,22 +88,23 @@ nav{
   flex-direction: row;
   justify-content: space-around;
 }
-.nav{
-gap: 30px;
-display: flex;
-flex-direction: row;
-list-style-type: none;
-margin: 0;
-padding: 0;
 
+.nav {
+  gap: 30px;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
-section{
-  display:flex;
+
+section {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-footer{
+footer {
   border-style: solid;
   margin: auto;
   margin-top: 3%;
@@ -107,21 +112,11 @@ footer{
   text-align: center;
 }
 
-.add{
+.contact {
   display: none;
-}
-
-.contact{
-  display: none;
-
-}
-
-.list{
-  display: flex;
-  flex-direction: column;
 }
 
 .date-time {
   float: right;
-  padding-right: 20%
+  padding-right: 20%;
 }
