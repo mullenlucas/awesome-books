@@ -25,7 +25,7 @@ class StorageB {
     const bookList = document.querySelector('.books-display');
     let displ = '';
     this.getBooks().forEach((el, index) => {
-      displ += `
+      displ += `      
       <div class="oneBook" id="book${index}">
       <div class='infobook'>
       <h4> '${el.titulo}' by ${el.author} </h4> 
@@ -80,3 +80,40 @@ document.addEventListener('click', (e) => {
 });
 
 StorageB.display();
+
+// -------NAV--------
+
+const listBtn = document.getElementById('list-link');
+const addBtn = document.getElementById('add-link');
+const contactBtn = document.getElementById('contact-link');
+const listBox = document.querySelector('.list');
+const addBox = document.querySelector('.add');
+const contactBox = document.querySelector('.contact');
+
+listBtn.addEventListener('click', () => {
+  listBox.style.display = 'flex';
+  addBox.style.display = 'none';
+  contactBox.style.display = 'none';
+});
+
+addBtn.addEventListener('click', () => {
+  listBox.style.display = 'none';
+  addBox.style.display = 'flex';
+  contactBox.style.display = 'none';
+});
+
+contactBtn.addEventListener('click', () => {
+  listBox.style.display = 'none';
+  addBox.style.display = 'none';
+  contactBox.style.display = 'flex';
+});
+
+const today = new Date();
+const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+
+const dateTime = `${date} ${time}`;
+
+const dateId = document.getElementById('date-time-id');
+
+dateId.innerHTML = dateTime;

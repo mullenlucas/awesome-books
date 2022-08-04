@@ -12,6 +12,8 @@ html {
 
 body {
   background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -31,10 +33,10 @@ hr {
 }
 
 .add {
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  display: none;
 }
 
 .books-display {
@@ -63,4 +65,52 @@ hr {
 .btn-delete {
   display: flex;
   justify-items: flex-end;
+}
+
+.list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  border-style: solid;
+  margin: auto;
+  margin-top: 3%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav {
+  gap: 30px;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  border-style: solid;
+  margin: auto;
+  margin-top: 3%;
+  width: 80%;
+  text-align: center;
+}
+
+.contact {
+  display: none;
+}
+
+.date-time {
+  float: right;
+  padding-right: 20%;
 }

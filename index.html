@@ -9,13 +9,27 @@
     
 </head>
 <body>
-    <h1>Awesome Books</h1>
-    <div class="books-display">
-
+    <header>
+        <nav>
+        <h4>Awesome Books</h4>
+        
+        <ul class="nav">
+            <li id="list-link"><a href="#">List </a></li>
+            <li id="add-link"><a href="#">Add new </a></li>
+            <li id="contact-link"><a href="#">Contact </a></li>
+        </ul>
+        </nav>
+        <div class="date-time" id="date-time-id">
         </div>
+    </header>
+    <div class="list">
+        <h2> All awesome books </h2>    
+    <div class="books-display">      
+        </div>
+    </div>
         <br>
         <br>
-        <hr>
+        
 <div class="add">
     <h2>Add a new book</h2>
   <form id='bk' action="form" method="post">
@@ -28,7 +42,21 @@
       <button type="submit" form="bk" id="btn-newbook" > Add</button>
     </form>
     </div>
-    
+ <section class="contact">
+    <h2>Contact</h2>
+    <p> Do you have any questions or just want to say 'Hello' ? <br>
+     You can reach out to us!</p>
+     <ul>
+        <li>Our e-mail : mail@mail.com</li>
+        <li>Our phone number: 004358654422</li>
+        <li>Our address:Streetname 22, 84503, Country</li>
+     </ul>
+  </section>
+  <br>
+  <br>
+  <footer> 
+    <p>This project is not yet licensed</p>
+  </footer>
     <script src="script.js" type="module"></script>
 </body>
 </html>
